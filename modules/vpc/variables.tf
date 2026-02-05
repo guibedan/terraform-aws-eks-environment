@@ -23,3 +23,8 @@ variable "private_subnets_cidr" {
   description = "CIDRs das subnets privadas"
   type        = list(string)
 }
+
+variable "project_name" {
+  description = "Nome do projeto"
+  type        = string
+}

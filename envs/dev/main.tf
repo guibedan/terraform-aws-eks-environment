@@ -16,4 +16,6 @@ module "vpc" {
     "10.0.11.0/24",
     "10.0.12.0/24"
   ]
+
+  project_name = "study-eks"
 }
