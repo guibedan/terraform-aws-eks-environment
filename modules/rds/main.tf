@@ -39,8 +39,8 @@ resource "aws_db_instance" "this" {
   allocated_storage = 20
   storage_type       = "gp2"
 
-  username = "postgres"
-  password = "postgres123" # depois vamos mover para secret
+  username = var.db_username
+  password = var.db_password
 
   db_subnet_group_name   = aws_db_subnet_group.this.name
   vpc_security_group_ids = [aws_security_group.rds.id]
