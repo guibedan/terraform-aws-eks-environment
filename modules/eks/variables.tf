@@ -24,13 +24,13 @@ variable "node_instance_type" {
 variable "node_desired_size" {
   description = "Quantidade desejada de nodes"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "node_max_size" {
   description = "Máximo de nodes"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "node_min_size" {
