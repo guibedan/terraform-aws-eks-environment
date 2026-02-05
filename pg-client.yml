@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pg-client
+  namespace: default
+spec:
+  containers:
+    - name: postgres-client
+      image: postgres:15
+      command:
+        - /bin/bash
+        - -c
+        - |
+          apt-get update && \
+          apt-get install -y socat && \
+          socat TCP-LISTEN:5432,fork TCP:host.us-east-1.rds.amazonaws.com:5432
+      ports:
+        - containerPort: 5432
+  restartPolicy: Never
