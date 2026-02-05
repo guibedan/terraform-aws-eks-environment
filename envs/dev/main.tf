@@ -48,3 +48,18 @@ module "eks_iam" {
     Project     = "eks-study"
   }
 }
+
+module "eks" {
+  source = "../../modules/eks"
+
+  cluster_name       = "eks-study"
+  cluster_role_arn   = module.eks_iam.cluster_role_arn
+  node_role_arn      = module.eks_iam.node_role_arn
+  private_subnet_ids = module.vpc.private_subnet_ids
+
+  tags = {
+    Environment = "dev"
+    Project     = "eks-study"
+  }
+}
+
