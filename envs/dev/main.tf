@@ -38,4 +38,13 @@ module "ecr" {
   }
 }
 
+module "eks_iam" {
+  source = "../../modules/iam/eks"
 
+  cluster_name = "eks-study"
+
+  tags = {
+    Environment = "dev"
+    Project     = "eks-study"
+  }
+}
