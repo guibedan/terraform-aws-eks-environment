@@ -19,3 +19,23 @@ module "vpc" {
 
   project_name = "study-eks"
 }
+
+module "ecr" {
+  source = "../../modules/ecr"
+
+  repositories = {
+    "orders-service" = {
+      scan_on_push = true
+    }
+    "payments-service" = {
+      scan_on_push = true
+    }
+  }
+
+  tags = {
+    Environment = "dev"
+    Project     = "eks-study"
+  }
+}
+
+
